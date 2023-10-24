@@ -36,18 +36,19 @@
           <ion-card-header>
             <ion-card-title>
               {{product.name}}
-              <ion-badge color="primary">{{product.type}}
-              </ion-badge>
+              <ion-badge *ngIf="product.type === 'Farmacia'" color="tertiary">{{ product.type }}</ion-badge>    
+              <ion-badge *ngIf="product.type === 'Vinos y Licores'" color="success">{{ product.type }}</ion-badge>  
+              <ion-badge *ngIf="product.type === 'Abarrotes'" color="danger">{{product.type}}</ion-badge> 
+              <ion-badge *ngIf="product.type === 'Limpieza'" color="medium">{{product.type}}</ion-badge>
             </ion-card-title>
             <ion-card-subtitle>{{ product.price | currency}}</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             {{product.description}}
-             <ion-button (click)="addToCart(product)">
-              <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
-            </ion-button> 
-            
           </ion-card-content>
+          <ion-button style="margin-left: 1rem;" (click)="addToCart(product)">
+            <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+          </ion-button> 
         </ion-card>
       </ion-col>
     </ion-row>
@@ -62,6 +63,3 @@
     <h2>Precio Total: {{ getTotalPrice() | currency}}</h2>
    </ion-grid>
    </ion-content>
-
-//LOS TIPOS TIENEN DIFERENTE COLOR
-//AGREGAR BOTON DE CARRITO DE COMPRAS Y MOSTRAR ABAJO LO QUE SE ESTÁ AGREGANDO
