@@ -22,7 +22,7 @@
         
         <ion-chip [outline]="true"> {{ item.quantity }}</ion-chip>
 
-        <ion-chip style="width: 2.7rem; justify-content: center; align-items: center;">
+        <ion-chip style="width: 2.7rem; justify-content: center; align-items: center;" (click)="removeToCart(item)">
           <ion-icon name="remove-circle-outline" style="margin: 0 auto;"></ion-icon>
         </ion-chip>
     

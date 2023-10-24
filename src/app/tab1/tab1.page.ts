@@ -66,29 +66,7 @@ export class Tab1Page {
 
 
   public addToCart(product: Product): void {
-    const existingProduct = this.cartService.getCartItems().find(item => item.name === product.name);
-    const existingProduct1 = this.cart.find(item => item.name === product.name);
-    
-    if (existingProduct && existingProduct1) {
-      existingProduct.quantity++;
-      existingProduct1.quantity++;
-    } else {
-      // Crea una copia del producto para evitar modificaciones no deseadas.
-      const productToAdd = { ...product };
-      productToAdd.quantity = 1;
-      this.cartService.addToCart(productToAdd);
-      product.quantity = 1;
-      this.cart.push(product);
-    }
+    this.cartService.addToCart(product);
   }
-  
 
-  public getTotalPrice(): number {
-    return this.cart.reduce((total, product) => total + product.price*product.quantity, 0);
-  }
 }
-
-//recorre la lista de productos en el carrito y
-//suma sus precios para calcular el precio total
-//de todos los productos en el carrito.
-//El resultado final es el precio total que se muestra en la interfaz de usuario.
