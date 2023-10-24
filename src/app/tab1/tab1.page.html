@@ -56,7 +56,7 @@
     <!-- Mostrar el carrito -->
     <h2>Carrito de compras</h2>
     <ul>
-      <li *ngFor="let item of cart">
+      <li *ngFor="let item of cartService.getCartItems(); index as i">
         {{ item.name }} - {{ item.price | currency}} - {{item.quantity}}
       </li>
     </ul>
