@@ -24,7 +24,7 @@ export class Tab1Page {
     this.products.push({
       name: "Coca Cola",
       price: 20,
-      description: "Taylor",
+      description: "Coca Cola enlata de 500ml",
       type: "Abarrotes",
       photo: "http://picsum.photos/500/300?random=",
       quantity:0
@@ -32,7 +32,7 @@ export class Tab1Page {
     this.products.push({
       name: "Jabon Zote",
       price: 10,
-      description: "Taylor",
+      description: "Una barra de jabón zote olor a rosas de 300gr",
       type: "Limpieza",
       photo: "http://picsum.photos/500/300?random=",
       quantity:0
@@ -40,7 +40,7 @@ export class Tab1Page {
     this.products.push({
       name: "Tequila",
       price: 200,
-      description: "Taylor",
+      description: "Famoso tequila de 800ml",
       type: "Vinos y Licores",
       photo: "http://picsum.photos/500/300?random=",
       quantity:0
@@ -65,8 +65,8 @@ export class Tab1Page {
     });
   }
 
-  public addToCart(product: Product): void {
-    this.cartService.addToCart(product);
+  public addToCartA(product: Product): void {
+    this.cartService.addToCartA(product);
   }
 
   public getTotalPrice(): number {

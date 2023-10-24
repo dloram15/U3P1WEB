@@ -19,14 +19,20 @@
           <ion-icon name="add-circle-outline" style="margin: 0 auto;"></ion-icon>
         </ion-chip>
         
+
         
         <ion-chip [outline]="true"> {{ item.quantity }}</ion-chip>
 
-        <ion-chip style="width: 2.7rem; justify-content: center; align-items: center;">
+        <ion-chip style="width: 2.7rem; justify-content: center; align-items: center;" (click)="removeToCart(item)">
           <ion-icon name="remove-circle-outline" style="margin: 0 auto;"></ion-icon>
         </ion-chip>
-    
+<br><br>
+        <ion-chip style="justify-content: center; align-items: center; background-color: brown; margin-left: 2rem;" (click)="deleteToCart(item)">
+          <ion-icon name="trash-outline" style="margin: 0 auto;"></ion-icon>
+          <h3> Eliminar</h3>
+        </ion-chip>  
       </ion-label>
+      
     </ion-item> 
   </ion-list>
   <ion-item>
@@ -34,5 +40,12 @@
       Precio Total: {{ cartService.getTotalPrice() | currency }}
     </ion-label>
   </ion-item>
+  <br><br><br>
+  <ion-label style="display: flex; justify-content: center; ">
+    <ion-button style="width: 20rem;" color="warning" (click)="clearCart()">
+      <ion-icon slot="icon-only" name="cart-outline"></ion-icon> Realizar compra
+    </ion-button>
+  </ion-label>
+  
 </ion-content>
 

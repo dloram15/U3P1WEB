@@ -23,4 +23,13 @@ export class Tab2Page {
   public removeToCart(product: Product): void {
     this.cartService.removeToCart(product);
   }
+
+  public deleteToCart(product: Product): void {
+    this.cartService.deleteToCart(product);
+  }
+
+  public clearCart():void {
+    this.cartService.clearCart();
+    
+  }
 }

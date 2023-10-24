@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
    <ion-grid>
     <ion-row>
       <ion-col size="12">
@@ -30,36 +30,36 @@
     </ion-row>
 
     <ion-row>
-      <ion-col size = "6" *ngFor="let product of productsFounds; index as i">
+      <ion-col class="ion-col-sm-6 ion-col-lg-3" *ngFor="let product of productsFounds; index as i">
         <ion-card>
           <img [src]="product.photo+i.toString()"/>
           <ion-card-header>
             <ion-card-title>
               {{product.name}}
-              <ion-badge *ngIf="product.type === 'Farmacia'" color="tertiary">{{ product.type }}</ion-badge>    
-              <ion-badge *ngIf="product.type === 'Vinos y Licores'" color="success">{{ product.type }}</ion-badge>  
+              <ion-badge *ngIf="product.type === 'Farmacia'" color="success">{{ product.type }}</ion-badge>    
+              <ion-badge *ngIf="product.type === 'Vinos y Licores'" style="background-color: #8E1F4C;">{{ product.type }}</ion-badge>  
               <ion-badge *ngIf="product.type === 'Abarrotes'" color="danger">{{product.type}}</ion-badge> 
-              <ion-badge *ngIf="product.type === 'Limpieza'" color="medium">{{product.type}}</ion-badge>
+              <ion-badge *ngIf="product.type === 'Limpieza'" color="primary">{{product.type}}</ion-badge>
             </ion-card-title>
             <ion-card-subtitle>{{ product.price | currency}}</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             {{product.description}}
           </ion-card-content>
-          <ion-button style="margin-left: 1rem;" (click)="addToCart(product)">
+          <ion-button style="margin-left: 1rem; width: 20rem;" color="warning" (click)="addToCartA(product)">
             <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
           </ion-button> 
         </ion-card>
       </ion-col>
     </ion-row>
     
-    <!-- Mostrar el carrito -->
+    
     <h2>Carrito de compras</h2>
     <ul>
       <li *ngFor="let item of cartService.getCartItems(); index as i">
         {{ item.name }} - {{ item.price | currency}} - {{item.quantity}}
       </li>
     </ul>
-    <h2>Precio Total: {{ getTotalPrice() | currency}}</h2>
+    <h2>Precio Total: {{ cartService.getTotalPrice() | currency }}</h2>
    </ion-grid>
    </ion-content>
