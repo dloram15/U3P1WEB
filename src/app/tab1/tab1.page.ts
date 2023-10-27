@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../models/product.model';
 import { CartService } from '../services/cart_services'
+import { AlertService } from '../services/alert'
 
 @Component({
   selector: 'app-tab1',
@@ -15,16 +16,16 @@ export class Tab1Page {
     "Limpieza",
     "Vinos y Licores",
     "Farmacia",
-  ];
+  ];  
 
   public cart : Product[] = [];
   
 
-  constructor(public cartService: CartService) {
+  constructor(public cartService: CartService, public alertService: AlertService) {
     this.products.push({
       name: "Coca Cola",
       price: 20,
-      description: "Coca Cola enlata de 500ml",
+      description: "Refresco de cola 600 ml",
       type: "Abarrotes",
       photo: "http://picsum.photos/500/300?random=",
       quantity:0,
@@ -33,7 +34,7 @@ export class Tab1Page {
     this.products.push({
       name: "Jabon Zote",
       price: 10,
-      description: "Una barra de jabón zote olor a rosas de 300gr",
+      description: "Jabon en barra 300 gr",
       type: "Limpieza",
       photo: "http://picsum.photos/500/300?random=",
       quantity:0,
@@ -42,7 +43,7 @@ export class Tab1Page {
     this.products.push({
       name: "Tequila",
       price: 200,
-      description: "Famoso tequila de 800ml",
+      description: "Jose Cuervo Tradicional 900 ml",
       type: "Vinos y Licores",
       photo: "http://picsum.photos/500/300?random=",
       quantity:0,
@@ -51,7 +52,7 @@ export class Tab1Page {
     this.products.push({
       name: "Clonazepam",
       price: 50,
-      description: "Taylor",
+      description: "Pastillas para dormir 20 pzs",
       type: "Farmacia",
       photo: "http://picsum.photos/500/300?random=",
       quantity:0,
@@ -80,4 +81,9 @@ export class Tab1Page {
   addToFavorites(product: Product): void {
     this.cartService.addToFavorites(product);
   }
+
+  alert():void{
+    this.alertService.presentToast('middle');
+  }
+
 }

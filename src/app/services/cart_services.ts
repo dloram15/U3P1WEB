@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
-import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -19,37 +18,14 @@ export class CartService {
 
     if (existingProduct) {
       existingProduct.quantity++;
-      this.AutoCloseAlert();
-    } else {
-      const productToAdd = { ...product };
-      productToAdd.quantity = 1;
-      this.cartItems.push(productToAdd);
-      this.AutoCloseAlert();
-    }
-  }
-
-  addToCart(product: Product) {
-    const existingProduct = this.cartItems.find(item => item.name === product.name);
-
-    if (existingProduct) {
-      existingProduct.quantity++;
     } else {
       const productToAdd = { ...product };
       productToAdd.quantity = 1;
       this.cartItems.push(productToAdd);
     }
   }
-  constructor(private alertController: AlertController) { }
-  async AutoCloseAlert() {
-    const alert = await this.alertController.create({
-      header: 'Agregado al carrito :)'});
 
-    await alert.present();
-
-    setTimeout(() => {
-      alert.dismiss();
-    }, 300); // 5000 milisegundos (5 segundos)
-  }
+  
   removeToCart(product: Product) {
     const existingProductIndex = this.cartItems.findIndex(item => item.name === product.name);
   

@@ -3,11 +3,11 @@ import { Product } from '../models/product.model';
 import { CartService } from '../services/cart_services'
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-tab4',
+  templateUrl: 'tab4.page.html',
+  styleUrls: ['tab4.page.scss']
 })
-export class Tab2Page {
+export class Tab4Page {
   public cart: Product[] = [];
   public totalPrice: number = 0;
 
@@ -16,9 +16,7 @@ export class Tab2Page {
     
 
   }
-  public addToCartA(product: Product): void {
-    this.cartService.addToCartA(product);
-  }
+
 
   public removeToCart(product: Product): void {
     this.cartService.removeToCart(product);

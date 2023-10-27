@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Favoritos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -22,7 +22,7 @@
         {{product.description}}
       </ion-card-content>
       <ion-row>
-        <ion-button (click)="addToCart(product)">Agregar</ion-button>
+        <ion-button (click)="addToCartA(product)">Agregar</ion-button>
       <ion-button (click)="removeFromFavorites(product)" fill="clear">
         <ion-icon name="star" [color]="product.favorito ? 'warning' : 'medium'"></ion-icon>
       </ion-button>

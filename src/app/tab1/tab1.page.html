@@ -46,8 +46,9 @@
           <ion-card-content>
             {{product.description}}
           </ion-card-content>
-          <ion-button style="margin-left: 1rem; width: 20rem;" color="warning" (click)="addToCartA(product)">
+          <ion-button style="margin-left: 1rem; width: 20rem;" color="warning" (click)="addToCartA(product)" (click)="alert()">
             <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+
           </ion-button> 
           <ion-button (click)="addToFavorites(product)" fill="clear">
             <ion-icon name="star" [color]="product.favorito ? 'warning' : 'medium'"></ion-icon>
