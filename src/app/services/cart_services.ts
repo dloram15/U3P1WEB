@@ -7,6 +7,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class CartService {
   private cartItems: any[] = [];
+  public productosFavoritos: Product[] =[];
 
   getCartItems() {
     return this.cartItems;
@@ -77,4 +78,26 @@ export class CartService {
   clearCart() {
     this.cartItems = [];
   }
+
+  addToFavorites(product: Product): void {
+    if (!this.isProductInFavorites(product)) {
+      this.productosFavoritos.push(product);
+      product.favorito = true;
+    }
+  }
+  
+  isProductInFavorites(product: Product): boolean {
+    return this.productosFavoritos.some((p) => p === product);
+  }
+  
+
+  removeFromFavorites(product: Product): void {
+    const index = this.productosFavoritos.findIndex((p) => p === product);
+    if (index !== -1) {
+      this.productosFavoritos.splice(index, 1);
+      product.favorito = false;
+    }
+  }
 }
+
+

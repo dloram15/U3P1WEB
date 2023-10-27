@@ -5,4 +5,5 @@ export interface Product{
     type: string;
     photo: string;
     quantity: number;
+    favorito: boolean;
 }
