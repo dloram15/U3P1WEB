@@ -7,3 +7,9 @@ export interface Product{
     quantity: number;
     favorito: boolean;
 }
+
+export interface Historial{
+    date: string;
+    totalprice: number;
+}
+

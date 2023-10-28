@@ -8,10 +8,9 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of cartService.getCartItems(); index as i">
-      <ion-thumbnail slot="start" style="width: 8.5rem; height: 8.5rem;">
-        <ion-img [src]="item.photo+i.toString()" [alt]="item.name"></ion-img>
-      </ion-thumbnail>     
+    <ion-item *ngFor="let item of historyService.getHistoryItems(); index as i"> 
+      <ion-label>Precio Total: {{ item.totalprice | currency }}</ion-label>
+     <ion-label>Fecha: {{ item.date }}</ion-label>
     </ion-item> 
   </ion-list>  
 </ion-content>
