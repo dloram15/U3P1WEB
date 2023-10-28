@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Product, Historial } from '../models/product.model';
+import { Product} from '../models/product.model';
 import { CartService } from '../services/cart_services'
-import { NavController, NavParams } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { HistoryService } from '../services/history_services'
+import { AlertService } from '../services/alert'
+
 
 
 @Component({
@@ -10,17 +11,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
-  public cart: Product[] = [];
-  public totalPrice: number = 0;
-  public historial: Historial [] = [];
-  public currentDate: string="";
 
-  constructor(public cartService: CartService, public navCtrl: NavController, public route: ActivatedRoute) {
-    this.route.queryParams.subscribe(params => {
-      this.totalPrice = params['totalPrice'];
-      this.currentDate = params['currentDate'];
-    });
+export class Tab2Page {
+  constructor(public cartService: CartService,public historyService: HistoryService,public alertService: AlertService) {
   }
   public addToCartA(product: Product): void {
     this.cartService.addToCartA(product);
@@ -34,26 +27,9 @@ export class Tab2Page {
     this.cartService.deleteToCart(product);
   }
 
-  public clearCart():void {
-    this.cartService.clearCart();
-    
-  }
-
-  public addToHistory(product: Product): void {
-    this.cartService.addToCartA(product);
-  }
-
-  realizarCompra() {
-  const totalPrice = this.cartService.getTotalPrice();
-  const currentDate = new Date().toLocaleDateString();
-
-  console.log(totalPrice);
-
-  const historialItem: Historial = {date: this.currentDate,totalprice: this.totalPrice};
-  console.log(historialItem);
-
-
-  
-  
+  //History
+  addToHistory3(){
+    this.historyService.addToHistory3();
+    this.alertService.alertHistory('middle')
   }
 }

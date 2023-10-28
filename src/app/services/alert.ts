@@ -16,5 +16,15 @@ export class AlertService {
     
         await toast.present();
       }
+    
+      async alertHistory(position: 'top' | 'middle' | 'bottom') {
+        const toast = await this.toastController.create({
+          message: 'Compra realizada con exito :)',
+          duration: 500,
+          position: position,
+        });
+    
+        await toast.present();
+      }
   }
 

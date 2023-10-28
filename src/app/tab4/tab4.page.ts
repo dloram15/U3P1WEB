@@ -18,16 +18,8 @@ export class Tab4Page {
   public historial: Historial [] = [];
   public currentDate: string="";
 
-  constructor(public cartService: CartService, public navCtrl: NavController, public route: ActivatedRoute,public historyService: HistoryService) {
-    this.route.queryParams.subscribe(params => {
-      this.totalPrice = params['totalPrice'];
-      this.currentDate = params['currentDate'];
-    });
-  }
+  constructor(public cartService: CartService, public historyService: HistoryService) {}
 
-  public removeToCart(product: Product): void {
-    this.cartService.removeToCart(product);
-  }
 
   public deleteToCart(product: Product): void {
     this.cartService.deleteToCart(product);
@@ -38,23 +30,6 @@ export class Tab4Page {
     
   }
 
-
-
-  realizarCompra() {
-    // Obtén el precio total
-    const totalPrice = this.cartService.getTotalPrice();
-  
-    // Obtén la fecha actual
-    const currentDate = new Date().toLocaleDateString();
-  
-    // Navega a la página de resumen de compra y pasa los datos como parámetros
-    this.navCtrl.navigateForward('/order-summary', {
-      queryParams: {
-        totalPrice,
-        currentDate,
-      }
-    });
-  }
 }
 
 

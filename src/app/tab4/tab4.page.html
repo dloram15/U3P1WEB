@@ -7,11 +7,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list lines="inset">
     <ion-item *ngFor="let item of historyService.getHistoryItems(); index as i"> 
-      <ion-label>Precio Total: {{ item.totalprice | currency }}</ion-label>
-     <ion-label>Fecha: {{ item.date }}</ion-label>
+      <ion-label>Total: {{ item.totalprice | currency }}</ion-label>
+     <ion-label class="ion-text-end ion-text-top">{{ item.date }}</ion-label>
     </ion-item> 
-  </ion-list>  
+  </ion-list> 
 </ion-content>
 

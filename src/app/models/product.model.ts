@@ -11,5 +11,6 @@ export interface Product{
 export interface Historial{
     date: string;
     totalprice: number;
+    items: Product[];
 }
 

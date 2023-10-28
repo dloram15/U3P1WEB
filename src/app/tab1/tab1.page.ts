@@ -72,6 +72,7 @@ export class Tab1Page {
 
   public addToCartA(product: Product): void {
     this.cartService.addToCartA(product);
+    this.alertService.presentToast('middle')
   }
 
   public getTotalPrice(): number {
@@ -81,9 +82,5 @@ export class Tab1Page {
   addToFavorites(product: Product): void {
     this.cartService.addToFavorites(product);
   }
-
-  alert():void{
-    this.alertService.presentToast('middle');
-  }
 
 }

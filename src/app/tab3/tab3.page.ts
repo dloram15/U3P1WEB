@@ -9,13 +9,12 @@ import { AlertService } from '../services/alert'
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  public products: Product[]=[];
-  public productsFounds: Product[]=[];
   
   constructor(public cartService: CartService, public alertService: AlertService) {}
 
     addToCartA(product: Product): void {
       this.cartService.addToCartA(product);
+      this.alertService.presentToast('middle')
     }
     
     deleteToCart(product: Product): void {
@@ -28,9 +27,5 @@ export class Tab3Page {
   
     removeFromFavorites(product: Product): void {
       this.cartService.removeFromFavorites(product);
-    }
-
-    alert():void{
-      this.alertService.presentToast('middle');
     }
 }

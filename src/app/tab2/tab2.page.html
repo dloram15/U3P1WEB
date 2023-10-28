@@ -18,9 +18,7 @@
         <ion-chip style="width: 2.7rem; justify-content: center; align-items: center;" (click)="addToCartA(item)">
           <ion-icon name="add-circle-outline" style="margin: 0 auto;"></ion-icon>
         </ion-chip>
-        
 
-        
         <ion-chip [outline]="true"> {{ item.quantity }}</ion-chip>
 
         <ion-chip style="width: 2.7rem; justify-content: center; align-items: center;" (click)="removeToCart(item)">
@@ -42,7 +40,7 @@
   </ion-item>
   <br><br><br>
   <ion-label style="display: flex; justify-content: center; ">
-    <ion-button style="width: 20rem;" color="warning" (click)="realizarCompra()" (click)="clearCart()">
+    <ion-button style="width: 20rem;" color="warning" (click)="addToHistory3()">
       <ion-icon slot="icon-only" name="cart-outline"></ion-icon> Realizar compra
     </ion-button>
   </ion-label>
