@@ -22,8 +22,6 @@ export class HistoryService {
   getHistoryItems() {
     return this.historyItems;
   }
-
-  
   
   addToHistory(historial: Historial) {
     this.historyItems.push(historial);
